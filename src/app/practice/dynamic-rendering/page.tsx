@@ -1,14 +1,15 @@
-import Box from '@/app/components/Box'
-import DynamicServerComponent from '@/app/components/dynamicServercomponent'
-import StaticClientComponent from '@/app/components/StaticClientComponent'
-import React from 'react'
+import HomeClient from "../../components/HomeClient";
+import styles from "../../page.module.css";
 
-const DynamicRenderingPage = () => {
-  return <Box>
-    <h1>Dynamic Rendering Page</h1>
-    <DynamicServerComponent text="Dynamic Server Component への Props" />
-    <StaticClientComponent text="Static Client Component への Props" />
-  </Box>
+export const metadata = {
+  title: "飯処 太心 TAISHIN",
+  description: "お腹も心も満たすうまいメシ、食べにおいで。",
+};
+
+export default function Page() {
+  return (
+    <div className={styles.page}>
+      <HomeClient />
+    </div>
+  );
 }
-
-export default DynamicRenderingPage

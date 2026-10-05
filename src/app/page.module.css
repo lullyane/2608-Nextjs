@@ -1,0 +1,297 @@
+.page {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Yu Gothic", sans-serif;
+  color: #fdf7e9;
+  background-color: #1b130c;
+}
+
+/* ===========================
+   トップセクション（固定）
+   =========================== */
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/taishin-interior.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6);
+}
+
+/* ▼▼▼ 暖簾（固定してスクロール連動で動かす） ▼▼▼ */
+.noren {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.norenPanel {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(#5b2c1b, #3a1a10);
+  border-bottom: 8px solid #f5e1b8;
+}
+
+/* ▼▼▼ hero の下に余白を作る ▼▼▼ */
+.heroSpacer {
+  height: 100vh;
+  /* hero と同じ高さの余白 */
+}
+
+/* ▼▼▼ ロゴ（常に表示） ▼▼▼ */
+.heroContent {
+  position: relative;
+  z-index: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.8rem;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+/* ▼▼▼ キャッチコピー：スクロールでふわっと ▼▼▼ */
+.catchCopy {
+  position: relative;
+  z-index: 0;
+  /* ← ここも重要 */
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #f9e3a7;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.catchCopyVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   メニュー以下（通常の流れ）
+   =========================== */
+.menuSection {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 8vw;
+  background: radial-gradient(circle at top, #3a2415, #1b130c);
+}
+
+.menuTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.menuTab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid #f5e1b8;
+  background: transparent;
+  color: #f5e1b8;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.menuTabActive {
+  background: #f5e1b8;
+  color: #2b1a10;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.menuItemInner {
+  position: relative;
+  padding: 1.2rem 1rem;
+  border-radius: 12px;
+  background: #2b1a10;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.menuSteam {
+  position: absolute;
+  top: 0.4rem;
+  left: 50%;
+  width: 40px;
+  height: 80px;
+  margin-left: -20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menuItemInner:hover .menuSteam {
+  opacity: 1;
+  animation: steam-rise 1.8s ease-out infinite;
+}
+
+@keyframes steam-rise {
+  0% {
+    transform: translateY(20px);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+.menuName {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.menuPrice {
+  font-size: 0.9rem;
+  color: #f9e3a7;
+}
+
+/* ===========================
+   アクセス
+   =========================== */
+.accessSection {
+  padding: 3rem 8vw;
+  background: #20140d;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.mapWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.mapHanddrawn {
+  width: 280px;
+  height: 180px;
+  border-radius: 12px;
+  background: #fdf7e9;
+  color: #2b1a10;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mapLabel,
+.mapLabelHighlight {
+  position: absolute;
+  font-size: 0.8rem;
+}
+
+.mapLabel {
+  background: #eee0c0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+
+.mapLabelHighlight {
+  background: #e85c3b;
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.mapHover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.mapWrapper:hover .mapHover {
+  opacity: 1;
+}
+
+.waitingBubble {
+  background: #fff;
+  color: #2b1a10;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.waitingCharacter {
+  font-size: 0.85rem;
+}
+
+/* ===========================
+   お問い合わせ
+   =========================== */
+.contactSection {
+  padding: 3rem 8vw 4rem;
+  background: #1b130c;
+}
+
+.contactList {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contactItem {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.contactLabel {
+  font-size: 0.9rem;
+  color: #f9e3a7;
+}
+
+.contactValue {
+  font-size: 0.95rem;
+}
+
+.contactLink {
+  font-size: 0.95rem;
+  color: #f5e1b8;
+  text-decoration: underline;
+}
