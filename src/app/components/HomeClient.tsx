@@ -2,25 +2,62 @@
 
 import { useEffect, useState, useRef } from "react";
 import styles from "../page.module.css";
+import { Icons } from "../assets/icons";
 
 const menuTabs = ["ご飯もの", "一品料理", "麺・汁物"] as const;
 type MenuTab = (typeof menuTabs)[number];
 
-const menuItems: Record<MenuTab, { name: string; price: string }[]> = {
+const menuItems: Record<MenuTab, { icon: any; name: string; price: string }[]> = {
   "ご飯もの": [
-    { name: "太心のキーマカレー", price: "¥980" },
-    { name: "タコライス", price: "¥880" },
-    { name: "親方の気まぐれ焼飯", price: "¥780" },
+    {
+      icon: Icons.keemaCurry,
+      name: "太心のキーマカレー",
+      price: "¥980",
+    },
+    {
+      icon: Icons.tacoRice,
+      name: "タコライス",
+      price: "¥880"
+    },
+    {
+      icon: Icons.friedRice,
+      name: "親方の気まぐれ焼飯",
+      price: "¥780"
+    },
   ],
   "一品料理": [
-    { name: "おかんの唐揚げ", price: "¥680" },
-    { name: "ガリトマチキン", price: "¥680" },
-    { name: "ネギ塩焼豚", price: "¥680" },
+    {
+      icon: Icons.friedChicken,
+      name: "おかんの唐揚げ",
+      price: "¥680"
+    },
+    {
+      icon: Icons.tomatoBraisedChicken,
+      name: "ガリトマチキン",
+      price: "¥680"
+    },
+    {
+      icon: Icons.japaneseOmelette,
+      name: "出汁巻き卵",
+      price: "¥680"
+    },
   ],
   "麺・汁物": [
-    { name: "豚バラ茄子のおうどん", price: "¥780" },
-    { name: "贅沢山ボトフ", price: "¥780" },
-    { name: "おかんの鶏団子汁", price: "¥680" },
+    {
+      icon: Icons.udon,
+      name: "豚バラ茄子のおうどん",
+      price: "¥780"
+    },
+    {
+      icon: Icons.potAuFeu,
+      name: "贅沢山ボトフ",
+      price: "¥780"
+    },
+    {
+      icon: Icons.meatballSoup,
+      name: "おかんの鶏団子汁",
+      price: "¥680"
+    },
   ],
 };
 
@@ -87,7 +124,11 @@ export default function HomeClient() {
             {menuItems[activeTab].map((item) => (
               <div key={item.name} className={styles.menuItem}>
                 <div className={styles.menuItemInner}>
+                  <img src={Icons.steam.src} alt="蒸気" className={styles.menuSteam} />
+                  <img src={item.icon.src} alt={item.name} className={styles.menuIcon} />
                   <div className={styles.menuSteam} />
+                </div>
+                <div className={styles.menuText}>
                   <p className={styles.menuName}>{item.name}</p>
                   <p className={styles.menuPrice}>{item.price}</p>
                 </div>
@@ -101,12 +142,7 @@ export default function HomeClient() {
           <h2 className={styles.sectionTitle}>アクセス</h2>
 
           <div className={styles.mapWrapper}>
-            <div className={styles.mapHanddrawn}>
-              <span className={styles.mapLabel}>駅</span>
-              <span className={styles.mapLabel}>神社</span>
-              <span className={styles.mapLabelHighlight}>飯処 太心</span>
-            </div>
-
+            <img src={Icons.map.src} alt="地図" className={styles.map} />
             <div className={styles.mapHover}>
               <div className={styles.waitingBubble}>待ってるで！</div>
               <div className={styles.waitingCharacter}>🍺 店主（イメージ）</div>
