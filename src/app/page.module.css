@@ -124,12 +124,7 @@
 
 .menuSteam {
   position: absolute;
-  top: 0.4rem;
-  left: 50%;
-  width: 40px;
-  height: 80px;
-  margin-left: -20px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent);
+  width: 150px;
   opacity: 0;
   pointer-events: none;
 }
@@ -229,6 +224,14 @@
 
 .mapWrapper:hover .mapHover {
   opacity: 1;
+}
+
+.map {
+  width: 560px;
+  height: 360px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .waitingBubble {
