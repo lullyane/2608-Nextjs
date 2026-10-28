@@ -1,26 +1,17 @@
 .page {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans",
-    "Yu Gothic", sans-serif;
-  color: #fdf7e9;
-  background-color: #1b130c;
+  background-image: url("/Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
 }
 
 /* ===========================
    トップセクション（固定）
    =========================== */
-.hero {
+.topSection {
   position: relative;
   height: 100vh;
   overflow: visible;
-}
-
-.heroBackground {
-  position: absolute;
-  inset: 0;
-  background-image: url("/images/taishin-interior.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.6);
 }
 
 .hidden {
@@ -35,45 +26,60 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* ▼▼▼ hero の下に余白 ▼▼▼ */
-.mainSpacer {
-  height: 100vh;
+.topwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ▼▼▼ ロゴ ▼▼▼ */
-.heroContent {
+.logo {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  text-align: center;
-  pointer-events: none;
+  top: 20%;
+  transform: translate(-50%, -50%), scale(0.4);
+  animation: steam-scale 0.6s ease-out forwards;
 }
 
-.logo {
-  font-size: 2.8rem;
-  letter-spacing: 0.2em;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+@keyframes steam-scale {
+  from {
+    transform: scale(0.4);
+  }
+
+  to {
+    transform: scale(0.7);
+  }
 }
 
 /* ▼▼▼ キャッチコピー ▼▼▼ */
 .catchCopy {
-  position: relative;
-  z-index: 1;
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #f9e3a7;
+  position: absolute;
   text-align: center;
-
+  font-size: 1.2rem;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  color: #f9e3a7;
   opacity: 0;
-  transform: translateY(16px);
   transition: opacity 0.8s ease-out, transform 1.5s ease-out;
 }
 
 .catchCopyVisible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
+}
+
+/* ===========================
+   席情報
+   =========================== */
+
+.seatSection {
+  display: flex;
+}
+
+.seatExplanation {
+  color: #F7DCBE;
+  font-size: 0.95rem;
 }
 
 /* ===========================
@@ -124,7 +130,9 @@
 
 .menuSteam {
   position: absolute;
-  width: 150px;
+  top: -5px;
+  left: 20%;
+  width: 160px;
   opacity: 0;
   pointer-events: none;
 }
@@ -154,6 +162,7 @@
 .menuName {
   font-size: 1rem;
   margin-bottom: 0.4rem;
+  color: #f9e3a7;
 }
 
 .menuPrice {
@@ -252,7 +261,7 @@
    =========================== */
 .contactSection {
   padding: 3rem 8vw 4rem;
-  background: #1b130c;
+  /* background: #1b130c; */
 }
 
 .contactList {
@@ -268,15 +277,16 @@
 
 .contactLabel {
   font-size: 0.9rem;
-  color: #f9e3a7;
+  color: #f5e1b8;
 }
 
 .contactValue {
   font-size: 0.95rem;
+  color: #f9e3a7;
 }
 
 .contactLink {
   font-size: 0.95rem;
-  color: #f5e1b8;
+  color: #f9e3a7;
   text-decoration: underline;
 }
