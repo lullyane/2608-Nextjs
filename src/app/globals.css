@@ -19,8 +19,15 @@
   }
 }
 
+@font-face {
+  font-family: "Shirafune";
+  src: url("/fonts/HOT-GFKaishokk-E.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Shirafune", sans-serif;
 }
