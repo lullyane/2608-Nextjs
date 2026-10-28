@@ -9,18 +9,22 @@ import PotAuFeu from "./pot-au-feu.png";
 import MeatballSoup from "./meatball-soup.png";
 import Map from "./map.png";
 import Steam from "./steam.png";
+import TaishinLogo from "./taishin-logo.png";
+import Seat from "./seat.png";
 
 
 export const Icons = {
-  keemaCurry: KeemaCurry,
-  tacoRice: TacoRice,
-  friedRice: FriedRice,
-  friedChicken: FriedChicken,
-  tomatoBraisedChicken: TomatoBraisedChicken,
-  japaneseOmelette: Dashimaki,
-  udon: Udon,
-  potAuFeu: PotAuFeu,
-  meatballSoup: MeatballSoup,
-  map: Map,
-  steam: Steam,
+  KeemaCurry: KeemaCurry,
+  TacoRice: TacoRice,
+  FriedRice: FriedRice,
+  FriedChicken: FriedChicken,
+  TomatoBraisedChicken: TomatoBraisedChicken,
+  JapaneseOmelette: Dashimaki,
+  Udon: Udon,
+  PotAuFeu: PotAuFeu,
+  MeatballSoup: MeatballSoup,
+  Map: Map,
+  Steam: Steam,
+  TaishinLogo: TaishinLogo,
+  Seat: Seat,
 } as const;
