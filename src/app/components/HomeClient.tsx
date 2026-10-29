@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "../page.module.css";
 import { Icons } from "../assets/icons";
 
-// ▼▼▼ スクロールでふわっと表示 ▼▼▼
+// ▼▼▼ キャッチコピーふわっと表示 ▼▼▼
 function useFadeInOnScroll() {
   const ref = useRef<any>(null);
   const [visible, setVisible] = useState(false);
@@ -22,7 +22,6 @@ function useFadeInOnScroll() {
 
   return { ref, visible };
 }
-
 
 // ▼▼▼ メニュータブ ▼▼▼
 const menuTabs = ["ご飯もの", "一品料理", "麺・汁物"] as const;
@@ -48,53 +47,58 @@ const menuItems: Record<MenuTab, { icon: any; name: string; price: string }[]> =
 
 export default function HomeClient() {
 
-  // ▼▼▼ 共通フック：キャッチコピー ▼▼▼
+  // ▼▼▼ キャッチコピー ▼▼▼
   const { ref: copyRef, visible: copyVisible } = useFadeInOnScroll();
 
-  // ▼▼▼ 共通フック：席説明 ▼▼▼
-  const { ref: seatRef, visible: seatVisible } = useFadeInOnScroll();
-
+  // ▼▼▼ メニュータブ ▼▼▼
   const [activeTab, setActiveTab] = useState<MenuTab>("ご飯もの");
-
 
   return (
     <>
       {/* トップ */}
       <section className={styles.topSection}>
-        <div className={styles.topwrapper}>
-          <img
-            src={Icons.TaishinLogo.src}
-            alt="飯処 太心 TAISHIN"
-            className={styles.logo}
-          />
-          <p ref={copyRef} className={`${styles.catchCopy} ${copyVisible ? styles.catchCopyVisible : ""}`}>
-            お腹も心も満たすうまいメシ、食べにおいで。
-          </p>
+        <div className={styles.topWrapper}>
+          <img src={Icons.TaishinLogo.src} alt="飯処 太心 TAISHIN" className={styles.logo} />
+          <img src={Icons.CatchCopy.src} alt="お腹も心も満たすうまいメシ、食べにおいで。" ref={copyRef} className={`${styles.catchCopy} ${copyVisible ? styles.catchCopyVisible : ""}`} />
         </div>
       </section>
 
       {/* 席説明 */}
-      <section ref={seatRef} className={styles.seatSection}>
-        <div className={`${styles.seatExplanation} ${seatVisible ? styles.fadeIn : ""}`}>
-          <p>
-            夕方から開店の「太心」<br />
-            カウンターは6席だけの隠れ家的定食屋。<br />
-            <br />
-            仕事帰りに、ゆっくり食事を楽しむも良し。<br />
-            仕事前に腹ごしらえして頑張るも良し。<br />
-            <br />
-            作るの大好き、食べるの大好き、<br />
-            食べてもらうのはもっと大好きな俺の<br />
-            自慢の料理、食べてってや。<br />
+      <section className={styles.seatSection}>
+        <div className={styles.titleWrapper}>
+          <img src={Icons.Frame.src} alt="枠" className={styles.frame} />
+          <p className={styles.frameText}>
+            席情報
           </p>
         </div>
-        <div>
-          <img src={Icons.Seat.src} alt="席情報" />
+        <div className={styles.seatWrapper}>
+          <div className={styles.seatExplanation}>
+            <p>
+              夕方から開店の「太心」<br />
+              カウンターは6席だけの隠れ家的定食屋。<br />
+              <br />
+              仕事帰りに、ゆっくり食事を楽しむも良し。<br />
+              仕事前に腹ごしらえして頑張るも良し。<br />
+              <br />
+              作るの大好き、食べるの大好き、<br />
+              食べてもらうのはもっと大好きな俺の<br />
+              自慢の料理、食べてってや。<br />
+            </p>
+          </div>
+          <div className={styles.seatImage}>
+            <img src={Icons.Seat.src} alt="席情報" />
+          </div>
         </div>
       </section>
 
-      {/* メニュー */}
+      {/* お品書き */}
       <section className={styles.menuSection}>
+        <div className={styles.titleWrapper}>
+          <img src={Icons.Frame.src} alt="枠" className={styles.frame} />
+          <p className={styles.frameText}>
+            お品書き
+          </p>
+        </div>
         <div className={styles.menuTabs}>
           {menuTabs.map((tab) => (
             <button
@@ -106,17 +110,16 @@ export default function HomeClient() {
             </button>
           ))}
         </div>
-
         <div className={styles.menuGrid}>
           {menuItems[activeTab].map((item) => (
             <div key={item.name} className={styles.menuItem}>
               <div className={styles.menuItemInner}>
                 <img src={Icons.Steam.src} alt="蒸気" className={styles.menuSteam} />
                 <img src={item.icon.src} alt={item.name} className={styles.menuIcon} />
-              </div>
-              <div className={styles.menuText}>
-                <p className={styles.menuName}>{item.name}</p>
-                <p className={styles.menuPrice}>{item.price}</p>
+                <div className={styles.menuText}>
+                  <p className={styles.menuName}>{item.name}</p>
+                  <p className={styles.menuPrice}>{item.price}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -125,8 +128,13 @@ export default function HomeClient() {
 
       {/* アクセス */}
       <section className={styles.accessSection}>
-        <h2 className={styles.sectionTitle}>アクセス</h2>
-
+        <div className={styles.titleWrapper}>
+          <img src={Icons.Frame.src} alt="枠" className={styles.frame} />
+          <p className={styles.accessText}>
+            店舗情報<br />
+            ネット予約
+          </p>
+        </div>
         <div className={styles.mapWrapper}>
           <img src={Icons.Map.src} alt="地図" className={styles.map} />
           <div className={styles.mapHover}>

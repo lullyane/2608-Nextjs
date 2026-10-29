@@ -1,8 +1,46 @@
+/* ===========================
+   全体
+   =========================== */
+/* 背景 */
 .page {
   background-image: url("/Background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;
+}
+
+/* 各項目の大枠 */
+.seatSection,
+.menuSection,
+.accessSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  margin: 0 3rem;
+}
+
+/* 各項目のタイトル */
+.titleWrapper {
+  position: relative;
+  background-color: rgb(232, 92, 59, 0.7);
+  border-radius: 25%;
+  width: 40%;
+  padding: 1rem;
+}
+
+.frame {
+  display: block;
+}
+
+.frameText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b130c;
+  font-size: 2rem;
 }
 
 /* ===========================
@@ -26,18 +64,19 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.topwrapper {
+.topWrapper {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0;
 }
 
 /* ▼▼▼ ロゴ ▼▼▼ */
 .logo {
-  position: absolute;
-  top: 20%;
-  transform: translate(-50%, -50%), scale(0.4);
+  transform-origin: center 150px;
   animation: steam-scale 0.6s ease-out forwards;
 }
 
@@ -53,79 +92,86 @@
 
 /* ▼▼▼ キャッチコピー ▼▼▼ */
 .catchCopy {
-  position: absolute;
-  text-align: center;
-  font-size: 1.2rem;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  color: #f9e3a7;
+  position: relative;
+  top: 30px;
+  width: 40%;
   opacity: 0;
+  margin-left: 450px;
+  transform: translateY(20px) skew(50deg, 10deg);
   transition: opacity 0.8s ease-out, transform 1.5s ease-out;
 }
 
 .catchCopyVisible {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translateY(0) skew(-5deg, 5deg);
 }
 
 /* ===========================
    席情報
    =========================== */
-
-.seatSection {
+.seatWrapper {
+  align-items: center;
   display: flex;
 }
 
 .seatExplanation {
-  color: #F7DCBE;
+  color: #EECCAA;
   font-size: 0.95rem;
+  text-align: center;
+
+  /* 席写真に重ねる */
+  margin-right: -45px;
+  width: 60%;
+  padding: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* ⭐レスポンシブデザイン時は縦並びにする */
+}
+
+.seatImage {
+  max-width: 50%;
+  margin-top: 180px;
 }
 
 /* ===========================
    メニュー以下（通常の流れ）
    =========================== */
-.menuSection {
-  position: relative;
-  z-index: 1;
-  padding: 3rem 8vw;
-  background: radial-gradient(circle at top, #3a2415, #1b130c);
-}
-
 .menuTabs {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin: 1.5rem;
 }
 
 .menuTab {
   padding: 0.6rem 1.4rem;
   border-radius: 999px;
-  border: 1px solid #f5e1b8;
+  border: 1px solid #EECCAA;
   background: transparent;
-  color: #f5e1b8;
+  color: #EECCAA;
   cursor: pointer;
   font-size: 0.95rem;
 }
 
 .menuTabActive {
-  background: #f5e1b8;
+  background: #EECCAA;
   color: #2b1a10;
 }
 
 .menuGrid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
 .menuItemInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  padding: 1.2rem 1rem;
-  border-radius: 12px;
-  background: #2b1a10;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  padding: 1.2rem 1.2rem;
+  margin-bottom: 1rem;
+  background-color: rgb(238, 204, 170, 0.2);
 }
 
 .menuSteam {
@@ -159,6 +205,19 @@
   }
 }
 
+.menuIcon {
+  width: 230px;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 0.4rem;
+}
+
+.menuText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .menuName {
   font-size: 1rem;
   margin-bottom: 0.4rem;
@@ -166,16 +225,22 @@
 }
 
 .menuPrice {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #f9e3a7;
 }
 
 /* ===========================
    アクセス
    =========================== */
-.accessSection {
-  padding: 3rem 8vw;
-  background: #20140d;
+.accessText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b130c;
+
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .sectionTitle {
@@ -241,6 +306,7 @@
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin: 30px 150px 0 0;
 }
 
 .waitingBubble {

@@ -11,7 +11,8 @@ import Map from "./map.png";
 import Steam from "./steam.png";
 import TaishinLogo from "./taishin-logo.png";
 import Seat from "./seat.png";
-
+import Frame from "./frame.png";
+import CatchCopy from "./catchcopy.png";
 
 export const Icons = {
   KeemaCurry: KeemaCurry,
@@ -27,4 +28,6 @@ export const Icons = {
   Steam: Steam,
   TaishinLogo: TaishinLogo,
   Seat: Seat,
+  Frame: Frame,
+  CatchCopy: CatchCopy,
 } as const;
