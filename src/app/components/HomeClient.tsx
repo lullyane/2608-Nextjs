@@ -131,23 +131,45 @@ export default function HomeClient() {
         <div className={styles.titleWrapper}>
           <img src={Icons.Frame.src} alt="枠" className={styles.frame} />
           <p className={styles.accessText}>
-            店舗情報<br />
-            ネット予約
+            アクセス
           </p>
         </div>
         <div className={styles.mapWrapper}>
-          <img src={Icons.Map.src} alt="地図" className={styles.map} />
-          <div className={styles.mapHover}>
-            <div className={styles.waitingBubble}>待ってるで！</div>
-            <div className={styles.waitingCharacter}>🍺 店主（イメージ）</div>
+          <div className={styles.mapImageWrapper}>
+            <img src={Icons.Map.src} alt="地図" className={styles.map} />
+            <div className={styles.mapHover}>
+              <div className={styles.waitingBubble}>待ってるで！</div>
+              <div className={styles.waitingCharacter}>🍺 店主（イメージ）</div>
+            </div>
+          </div>
+          <div className={styles.mapExplanation}>
+            <p>住所<br />
+              〒559-9815<br />
+              大阪府 深灯市 中央区 2丁目 3-7<br />
+              月灯館ビル 1階<br />
+              <br />
+              電話番号<br />
+              080-****-****<br />
+              <br />
+              定休日<br />
+              月曜日、日曜日<br />
+              <br />
+              営業時間<br />
+              16:00～23:00<br />
+              （22:00 ラストオーダー）
+            </p>
           </div>
         </div>
       </section>
 
       {/* お問い合わせ */}
       <section className={styles.contactSection}>
-        <h2 className={styles.sectionTitle}>お問い合わせ</h2>
-
+        <div className={styles.titleWrapper}>
+          <img src={Icons.Frame.src} alt="枠" className={styles.frame} />
+          <p className={styles.accessText}>
+            お問い合わせ
+          </p>
+        </div>
         <div className={styles.contactList}>
           <div className={styles.contactItem}>
             <span className={styles.contactLabel}>TEL：</span>

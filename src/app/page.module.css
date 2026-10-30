@@ -96,7 +96,7 @@
   top: 30px;
   width: 40%;
   opacity: 0;
-  margin-left: 450px;
+  margin-left: 45%;
   transform: translateY(20px) skew(50deg, 10deg);
   transition: opacity 0.8s ease-out, transform 1.5s ease-out;
 }
@@ -251,6 +251,11 @@
 .mapWrapper {
   position: relative;
   display: inline-block;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .mapHanddrawn {
@@ -300,6 +305,10 @@
   opacity: 1;
 }
 
+.mapImageWrapper {
+  width: 60%;
+}
+
 .map {
   width: 560px;
   height: 360px;
@@ -322,16 +331,27 @@
   font-size: 0.85rem;
 }
 
+.mapExplanation {
+  color: #EECCAA;
+  text-align: center;
+  width: 30%;
+}
+
 /* ===========================
    お問い合わせ
    =========================== */
 .contactSection {
-  padding: 3rem 8vw 4rem;
-  /* background: #1b130c; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 50vh;
+  margin: 0 3rem;
 }
 
 .contactList {
   display: grid;
+  margin-top: 1rem;
   gap: 0.8rem;
 }
 
